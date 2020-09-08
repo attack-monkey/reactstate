@@ -21,7 +21,7 @@ import { AddState } from 'reactstate.config'
 
 ### Connect State into Components
 
-In the snippet below `connect` creates a subscription with the key `myComponent`.
+In the snippet below `connect` creates a subscription with the id `myComponent`.
 The subscription subscribes to both `counter1` and `counter2`.
 Whenever either of them change state - `MyComponent` is re-rendered.
 When the Component unmounts - the subscription is automatically cleaned up.
@@ -44,7 +44,7 @@ const MyComponent = () => {
 
 ### Mutating State
 
-Use `mutateState` to update the state of corresponding id.
+Use `mutateState` to update state at a particular id.
 Here we use a reusable `increment` function to mutate both 'counter1' and 'counter2' based on which button is pushed.
 
 ```jsx
