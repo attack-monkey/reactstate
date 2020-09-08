@@ -66,3 +66,32 @@ const MyComponent = () => {
 }
 
 ```
+
+### Setup & Typesafety
+
+reactstate works best with typescript
+
+```typescript
+
+// reactstate.config.ts
+
+export interface State {
+  counter1?: number
+  counter2?: number
+}
+
+interface Subscriptions {
+  counter1?: {
+    myComponent?: (state: State['counter1']) => void
+  }
+  counter2?: {
+    myComponent?: (state: State['counter2']) => void
+  }
+}
+
+export const { AddState, mutateState, connect } = reactstate<State, Subscriptions>()
+
+```
+
+Now import `AddState`, `connect`, and `mutateState`from the above `reactstate.config.ts`. Now as you write you'll get code hints - because reactstate knows the state of your app and what's subscribing to it.
+
