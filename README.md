@@ -8,7 +8,7 @@ To add state in a React app...
 ```jsx
 
 <MyApp>
-  <AddState id="counter" init={1}>
+  <AddState id="counter" init={1}/>
 </MyApp>
 
 ```
