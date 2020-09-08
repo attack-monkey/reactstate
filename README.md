@@ -44,7 +44,7 @@ const MyComponent = () => {
 
 ### Mutating State
 
-Use `mutateState` to update state with the corresponding id.
+Use `mutateState` to update the state of corresponding id.
 Here we use a reusable `increment` function to mutate both 'counter1' and 'counter2' based on which button is pushed.
 
 ```jsx
