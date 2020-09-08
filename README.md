@@ -60,7 +60,7 @@ const MyComponent = () => {
       <h1>{counter1}</h1>
       <h1>{counter2}</h1>
       <button onClick={ () => increment('counter1', counter1) }>Increment counter 1</button>
-      <button onClick={ () => increment('counter1', counter1) }>Increment counter 2</button>
+      <button onClick={ () => increment('counter2', counter2) }>Increment counter 2</button>
     </div>
   )
 }
