@@ -93,5 +93,5 @@ export const { AddState, mutateState, connect } = reactstate<State, Subscription
 
 ```
 
-Now import `AddState`, `connect`, and `mutateState`from the above `reactstate.config.ts`. Now as you write you'll get code hints - because reactstate knows the state of your app and what's subscribing to it.
+When you now import `AddState`, `connect`, and `mutateState`from the above `reactstate.config.ts`, you'll get code hints and type inference - because reactstate knows the state of your app and what's subscribing to it.
 
