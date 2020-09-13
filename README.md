@@ -3,7 +3,7 @@ Simple State Management for React
 
 ## Install
 
-`npm i reactstate`
+`npm i @attack-monkey/reactstate`
 
 > See Setup & Typesafety
 

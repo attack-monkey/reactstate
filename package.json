@@ -1,6 +1,6 @@
 {
-  "name": "reactstate",
-  "version": "1.0.0",
+  "name": "@attack-monkey/reactstate",
+  "version": "1.0.1",
   "description": "Simple State Management for React",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/attack-monkey/reactstate.git"
   },
-  "author": "",
+  "author": "attack-monkey",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/attack-monkey/reactstate/issues"
