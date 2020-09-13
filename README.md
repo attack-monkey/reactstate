@@ -92,6 +92,8 @@ reactstate works best with typescript
 
 // reactstate.config.ts
 
+import { reactstate } from 'reactstate/lib'
+
 export interface State {
   counter1?: number
   counter2?: number
