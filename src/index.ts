@@ -41,17 +41,33 @@ export const connect = <S, Su>() => <K extends keyof Su & keyof S, SK extends ke
   })
   return keys.reduce((ac: S, key: K, i: number) => ({ ...ac, [key]: states[i] }), {} as S)
 }
+ 
+export const fromState = <S, Su>() => <K extends keyof Su & keyof S, SK extends keyof Su[K], B>(subKey: SK, keys: K[], subFn: (partialState: Partial<S>) => B) => {
+  const states: Array<(S[K])> = []
+  const setStates: Array<Dispatch<SetStateAction<(S[K])>>> = []
+  keys.forEach((key, i) => {
+    [states[i], setStates[i]] = useState(getState<S>(key) as S[K])
+    useEffect(() => {
+      subscribe<Su>()(key, subKey, ((newValue: S[K]) => { setStates[i](newValue) }) as any)
+      return () => {
+        unsubscribe<Su>()(key, subKey)
+      }
+    })
+  })
+  const partialState: Partial<S> = keys.reduce((ac: S, key: K, i: number) => ({ ...ac, [key]: states[i] }), {} as S)
+  return subFn(partialState)
+}
 
 interface AddStateProps<S> {
   id: keyof S,
   init: S[keyof S]
 }
 
-export const AddState = <S>() => ({ id, init }: AddStateProps<S>) => {
-  const state = getState<S>(id)
-  !state && addState<S>()(id, init)
+export const AddState = <S>() => ({ id: stateId, init }: AddStateProps<S>) => {
+  const state = getState<S>(stateId)
+  !state && addState<S>()(stateId, init)
   useEffect(() => {
-    return () => deleteState<S>(id)
+    return () => deleteState<S>(stateId)
   })
   return null
 }
@@ -59,5 +75,6 @@ export const AddState = <S>() => ({ id, init }: AddStateProps<S>) => {
 export const reactstate = <S, Su>() => ({
   AddState: AddState<S>(),
   mutateState: mutateState<S>(),
-  connect: connect<S, Su>()
+  connect: connect<S, Su>(),
+  fromState: fromState<S, Su>()
 })

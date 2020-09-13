@@ -1,0 +1,28 @@
+{
+  "name": "reactstate",
+  "version": "1.0.0",
+  "description": "Simple State Management for React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attack-monkey/reactstate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attack-monkey/reactstate/issues"
+  },
+  "homepage": "https://github.com/attack-monkey/reactstate#readme",
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.49",
+    "typescript": "^4.0.2"
+  }
+}
