@@ -1,6 +1,6 @@
 {
   "name": "@attack-monkey/reactstate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple State Management for React",
   "main": "index.js",
   "scripts": {

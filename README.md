@@ -20,8 +20,8 @@ Simple State Management for React
 import { AddState } from 'reactstate.config'
 
 <MyApp>
-  <AddState id="counter1" init={1}/>
-  <AddState id="counter2" init={1}/>
+    <AddState id="counter1" init={1}/>
+    <AddState id="counter2" init={1}/>
 </MyApp>
 
 ```
@@ -36,11 +36,14 @@ both `counter1` and `counter2`.
 import { fromState } from 'reactstate.config.ts'
 
 export const MyComponent = () => 
-  fromState('myComponent', ['counter1', 'counter2'], ({ counter1, counter2 }) =>
-      <>
+  fromState(
+    'myComponent',
+    ['counter1', 'counter2'], 
+    ({ counter1, counter2 }) =>
+      <div>
         <h1>{counter1}</h1>
         <h1>{counter2}</h1>
-      </>
+      </div>
     )
 
 ```
@@ -67,18 +70,25 @@ Here we use a reusable `increment` function to mutate both 'counter1' and 'count
 
 ```tsx
 
-import { connect, mutateState } from 'reactstate.config'
+import { fromState, mutateState } from 'reactstate.config'
 
 const increment = (stateKey, currentState) => mutateState(stateKey, currentState + 1)
 
 const MyComponent = () =>
-  fromState('myComponent', ['counter1', 'counter2'], ({ counter1, counter2 }) =>
-    <>
-      <h1>{counter1}</h1>
-      <h1>{counter2}</h1>
-      <button onClick={ () => increment('counter1', counter1) }>Increment counter 1</button>
-      <button onClick={ () => increment('counter2', counter2) }>Increment counter 2</button>
-    </>
+  fromState(
+    'myComponent',
+    ['counter1', 'counter2'],
+    ({ counter1, counter2 }) =>
+      <div>
+        <h1>{counter1}</h1>
+        <h1>{counter2}</h1>
+        <button onClick={
+          () => increment('counter1', counter1)
+        }>Increment counter 1</button>
+        <button onClick={
+          () => increment('counter2', counter2)
+        }>Increment counter 2</button>
+      </div>
   ) 
 
 
